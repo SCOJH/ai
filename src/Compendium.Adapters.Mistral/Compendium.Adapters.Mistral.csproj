@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Compendium.Adapters.Mistral</AssemblyName>
+    <RootNamespace>Compendium.Adapters.Mistral</RootNamespace>
+    <PackageId>Compendium.Adapters.Mistral</PackageId>
+    <Description>Mistral AI direct API adapter for Compendium Framework. Implements IAIProvider against Mistral's "la Plateforme" REST API — EU-hosted (France) for GDPR-friendly chat completions, streaming, embeddings, tool calling, structured outputs, and Pixtral vision.</Description>
+    <PackageTags>compendium;adapter;mistral;ai;llm;embeddings;eu;gdpr;pixtral;codestral</PackageTags>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Compendium framework — consumed as published NuGets per ADR-0006. -->
+    <PackageReference Include="Compendium.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Compendium.Adapters.Mistral.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- In-repo abstraction (was a Compendium.Abstractions.AI PackageReference) -->
+    <ProjectReference Include="..\Compendium.Abstractions.AI\Compendium.Abstractions.AI.csproj" />
+  </ItemGroup>
+
+</Project>

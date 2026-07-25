@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Compendium.Adapters.Mercury.Tests</AssemblyName>
+    <RootNamespace>Compendium.Adapters.Mercury.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <!-- RichardSzalay.MockHttp 7.0.0 transitively pulls legacy
+         System.Net.Http 4.3.0 / System.Text.RegularExpressions 4.3.0
+         (via netstandard1.1). On .NET 9 those transitive packages are
+         shadowed by the framework, so the NU1903 advisories are not
+         exploitable here. Suppress only in the test project. -->
+    <NoWarn>$(NoWarn);NU1903</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Compendium.Adapters.Mercury\Compendium.Adapters.Mercury.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="NSubstitute" />
+    <PackageReference Include="AutoFixture" />
+    <PackageReference Include="AutoFixture.Xunit2" />
+    <PackageReference Include="Bogus" />
+    <PackageReference Include="RichardSzalay.MockHttp" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="coverlet.collector">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

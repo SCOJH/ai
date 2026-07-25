@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Compendium.Adapters.Bedrock</AssemblyName>
+    <RootNamespace>Compendium.Adapters.Bedrock</RootNamespace>
+    <Description>Compendium IAIProvider adapter for AWS Bedrock — Anthropic Claude, Llama, Mistral, Amazon Nova, Titan, and Cohere Embed via the unified Converse + InvokeModel APIs.</Description>
+    <PackageTags>compendium;adapter;aws;bedrock;ai;llm;claude;llama;mistral;nova;titan</PackageTags>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Compendium.Adapters.Bedrock.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Compendium.Abstractions" />
+    <PackageReference Include="Compendium.Core" />
+    <PackageReference Include="AWSSDK.BedrockRuntime" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
+    <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- In-repo abstraction (was a Compendium.Abstractions.AI PackageReference) -->
+    <ProjectReference Include="..\Compendium.Abstractions.AI\Compendium.Abstractions.AI.csproj" />
+  </ItemGroup>
+
+</Project>
